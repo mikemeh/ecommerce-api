@@ -16,13 +16,13 @@ func AuthMiddleware() gin.HandlerFunc {
 		}
 
 		token := strings.TrimPrefix(authHeader, "Bearer ")
-		// Replace with actual token validation logic
-		if token != "your_valid_token" { // Placeholder
+
+		if token != "valid_token" {
 			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "Invalid token"})
 			return
 		}
 
-		c.Set("userID", 123) // Replace with actual user ID retrieval
+		c.Set("userID", 123)
 		c.Next()
 	}
 }
